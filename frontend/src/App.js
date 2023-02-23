@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 // imports page & layout
 import Header from "./components/Header"
@@ -9,19 +9,13 @@ import Home from "./pages/Home"
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="app">
         <Header />
-        <Switch>
-          <Route path="/">
-            <Home />
-          </Route>
-          <Route path="/details/:id">
-            <Article />
-          </Route>
-          <Route path="/category/:id">
-            <Category />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/details/:id" element={<Article />} />
+          <Route path="/category/:id" element={<Category />} />
+        </Routes>
       </div>
     </Router>
   );
