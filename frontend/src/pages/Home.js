@@ -15,7 +15,7 @@ export default function Home() {
                     <div className="rating">{article.attributes.rating}</div>
                     <h2>{article.attributes.title}</h2>
                     <small>Caregory</small>
-                    <p>{article.attributes.body}</p>
+                    <p>{article.attributes.body.substring(0, 200)}...</p>
                     <Link to={`/details/${article.id}`}>Read more</Link>
                 </div>
             ))}
