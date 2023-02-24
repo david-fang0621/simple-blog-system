@@ -11,6 +11,14 @@ const ARTICLES = gql`
           title
           rating
           body
+          categories {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
         }
       }
     }
@@ -29,7 +37,9 @@ export default function Home() {
         <div key={article.id} className="article-card">
           <div className="rating">{article.attributes.rating}</div>
           <h2>{article.attributes.title}</h2>
-          <small>Caregory</small>
+          {article.attributes.categories.data.map((category) => (
+            <small key={category.id}>{category.attributes.name}</small>
+          ))}
           <p>{article.attributes.body.substring(0, 200)}...</p>
           <Link to={`/details/${article.id}`}>Read more</Link>
         </div>

@@ -27,6 +27,12 @@ a {
   padding-bottom: 10px;
   border-bottom: 2px solid;
 }
+.header .categories {
+  text-align: right;
+}
+.header .categories a {
+  margin-left: 10px;
+}
 
 .article-card {
   background: white;

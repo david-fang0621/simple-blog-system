@@ -4,7 +4,7 @@
   "info": {
     "singularName": "article",
     "pluralName": "articles",
-    "displayName": "Articles",
+    "displayName": "Article",
     "description": ""
   },
   "options": {
@@ -24,6 +24,12 @@
       "type": "integer",
       "required": true,
       "default": 0
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "inversedBy": "articles"
     }
   }
 }
