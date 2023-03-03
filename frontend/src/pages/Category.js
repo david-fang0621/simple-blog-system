@@ -1,7 +1,6 @@
 import React from "react";
 import { useQuery, gql } from "@apollo/client";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import ArticleCard from "../components/ArticleCard";
 
 const CATEGORY = gql`
