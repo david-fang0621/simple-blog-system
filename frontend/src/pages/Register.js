@@ -72,6 +72,13 @@ export default function Register() {
         />
       </div>
       <div className="input-element">
+        <label htmlFor="avatar">Avatar:</label>
+        <input
+          type="file"
+          id="avatar"
+        />
+      </div>
+      <div className="input-element">
         <Link to="/login">Already have an account?</Link>
       </div>
       <button type="submit" disabled={loading}>
