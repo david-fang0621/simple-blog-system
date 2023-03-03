@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery, gql } from "@apollo/client";
+import ArticleCard from "../components/ArticleCard";
 
 const ARTICLES = gql`
   query {
@@ -11,6 +12,7 @@ const ARTICLES = gql`
           title
           rating
           body
+          publishedAt
           categories {
             data {
               id
@@ -34,15 +36,7 @@ export default function Home() {
   return (
     <div>
       {data.articles.data.map((article) => (
-        <div key={article.id} className="article-card">
-          <div className="rating">{article.attributes.rating}</div>
-          <h2>{article.attributes.title}</h2>
-          {article.attributes.categories.data.map((category) => (
-            <small key={category.id}>{category.attributes.name}</small>
-          ))}
-          <p>{article.attributes.body.substring(0, 200)}...</p>
-          <Link to={`/details/${article.id}`}>Read more</Link>
-        </div>
+        <ArticleCard key={article.id} article={article} />
       ))}
     </div>
   );

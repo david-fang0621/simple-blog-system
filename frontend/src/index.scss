@@ -3,13 +3,22 @@
 $primary-color: #8e2ad6;
 $font-stack: Poppins, sans-serif;
 
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+%typography {
+  font-weight: 300;
+  color: $primary-color;
+  margin: 15px 0;
+}
+
 body {
   margin: 0 30px;
   font-family: $font-stack;
   background: #f1f1f1;
-}
-h1,h2,h3,h4 {
-  font-weight: 500;
 }
 button {
   color: white;
@@ -43,9 +52,7 @@ a {
 
 .header {
   .wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @extend %flex-between;
     border-bottom: 2px $primary-color solid;
     .links {
       display: flex;
@@ -57,14 +64,12 @@ a {
       padding: 0;
     }
   }
-  h1, h2 {
-    margin: 15px 0;
-    color: $primary-color;
-  }
   h1 {
+    @extend %typography;
     font-size: 1.5em;
   }
   h2 {
+    @extend %typography;
     font-size: 1.2em;
   }
   .categories {
@@ -81,6 +86,12 @@ a {
   margin: 60px auto;
   padding: 1px 20px 20px 90px;
   position: relative;
+  .title-section {
+    @extend %flex-between;
+    small {
+      color: $primary-color;
+    }
+  }
   .rating {
     position: absolute;
     top: -20px;
